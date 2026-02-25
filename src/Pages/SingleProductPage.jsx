@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import productService from '../services/productService';
 
+// kom samo radi izmene za git
+
 function SingleProductPage() {
 
   const {id} = useParams() // ovako prihvatamo id iz main patha, uvek ide u contantu kao id
@@ -34,13 +36,13 @@ function SingleProductPage() {
       <>
       <div className='w-[100%] flex flex-wrap'>
         <div className='w-[100%] md:w-[50%]'>
-          <img className='w-[80%]' src={OneProduct.images[CurrentImg]}/>
-          <div className='w-[80%] flex justify-center gap-[22px] mt-[24px] '>
+          <img className='w-[80%] mx-auto' src={OneProduct.images[CurrentImg]}/>
+          <div className='w-[80%] mx-auto flex justify-center gap-[22px] mt-[24px] '>
               {OneProduct.images?.map((img, index) =>{ // ako znamo da product ima vise slika (OneProduct.images.map())
                 return (
                    <img 
                    src={img} // prihvatili smo vrednost iz zagrade 
-                   key={index} // map uvek zahteva key
+                   key={index} // map uvek zahteva key !!!
                    alt='asdasd'
                    className= {CurrentImg == index ? 'w-[90px] h-[90px] p-2 border-2 border-purple-500 rounded-[6px]': 'w-[90px] h-[90px] p-2 border border-black/25 rounded-[6px]'}
                    onClick={() => ImageClick(index)} // uvek arrow funkcija jer prosledjujemo vrednost (index)               
